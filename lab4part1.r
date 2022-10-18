@@ -16,17 +16,17 @@ outer_product <- function() {
   stats <- c(mean(samp), var(samp))
 } -> my.stats
 
-x <- data.frame()
 
-newdata <- data.frame(emp_id = c(6:8),
-                      emp_name = c("Jim", "Tim", "John"),
-                      salary = c(578.0, 722.5, 632.8),
-                      start_date = as.Date(c("2013-05-21", "2013-
-                      07-30", "2014-06-17")),
-                      dept = c("IT", "Operations", "Finance"),
-                      stringsAsFactors = FALSE)
-
-
-
-rbind(x, newdata)
-
+df_expand <- function() {
+  newdata <- data.frame(emp_id = c(6:8),
+                          emp_name = c("Jim", "Tim", "John"),
+                          salary = c(578.0, 722.5, 632.8),
+                          start_date = as.Date(c("2013-05-21", "2013-
+                          07-30", "2014-06-17")),
+                          dept = c("IT", "Operations", "Finance"),
+                          stringsAsFactors = FALSE)
+  
+  newdata$dept <- c("IT", "Operations", "HR")
+  attach(newdata)
+  print(newdata)
+}
